@@ -3,7 +3,7 @@
 // HX711.DOUT	- pin #A1
 // HX711.PD_SCK	- pin #A0
 
-HX711 scale(A1, A0);		// parameter "gain" is ommited; the default value 128 is used by the library
+HX711 scale(A1, A0);		
 
 void setup() {
   Serial.begin(38400);
@@ -23,7 +23,7 @@ void setup() {
   Serial.println(scale.get_units(5), 1);	// print the average of 5 readings from tare weight (not set) divided 
 						// by the SCALE parameter (not set yet)  
 
-  scale.set_scale(2280.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
+  scale.set_scale(2280.f);                      // this value is obtained by calibrating the scale with known weights
   scale.tare();				        // reset the scale to 0
 
   Serial.println("After setting up the scale:");
@@ -38,8 +38,8 @@ void setup() {
   Serial.println(scale.get_value(5));		// print the average of 5 readings minus the tare weight, set with tare()
 
   Serial.print("get units: \t\t");
-  Serial.println(scale.get_units(5), 1);        // print the average of 5 readings minus tare weight, divided 
-						// by the SCALE parameter set with set_scale
+  Serial.println(scale.get_units(5), 1);        // print the average of 5 readings minus tare weight 
+						
 
   Serial.println("Readings:");
 }
